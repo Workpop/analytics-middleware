@@ -21,7 +21,8 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-import": "^1.1.0",
     "mocha": "^2.3.3",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "sinon": "^1.17.4"
   },
   "dependencies": {
     "babel-runtime": "6.x.x"

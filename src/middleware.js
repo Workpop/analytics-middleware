@@ -5,7 +5,7 @@ export default function analyticsMiddleware(track) {
     if (!action || !analytics) {
       return returnAction;
     }
-    const eventName = analytics.event;
+    const eventName = analytics.eventName;
     const eventMetaData = analytics.eventData || {};
     if (!eventName) {
       return returnAction;
