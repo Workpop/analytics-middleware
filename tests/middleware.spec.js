@@ -38,9 +38,9 @@ describe('Analytics Middleware', function () {
         eventName: "HELLO"
       }
     });
-    const [ eventName, eventData ] = trackAnalytics.getCall(0).args;
-    expect(eventName).to.eql('HELLO');
-    expect(eventData).to.eql({});
+    const [ name, metadata ] = trackAnalytics.getCall(0).args;
+    expect(name).to.eql('HELLO');
+    expect(metadata).to.eql({});
   });
 
   it('track should be called with event meta data if present', function () {
@@ -54,8 +54,8 @@ describe('Analytics Middleware', function () {
       }
     });
 
-    const [, eventData ] = trackAnalytics.getCall(0).args;
-    expect(eventData).to.eql({
+    const [, metadata ] = trackAnalytics.getCall(0).args;
+    expect(metadata).to.eql({
       "Button Name": "Toggle"
     });
   });

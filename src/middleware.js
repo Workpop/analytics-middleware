@@ -5,8 +5,8 @@ export default function analyticsMiddleware(track) {
     if (!action || !analytics) {
       return returnAction;
     }
-    const eventName = analytics.eventName;
-    const eventMetaData = analytics.eventData || {};
+    const eventName = analytics.name;
+    const eventMetaData = analytics.metadata || {};
     if (!eventName) {
       return returnAction;
     }
