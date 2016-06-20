@@ -1,3 +1,17 @@
-export default function analyticsMiddleware() {
-  return 'hello world';
+export default function analyticsMiddleware(track) {
+  return store => next => action => {
+    const analytics = action.analytics;
+    const returnAction = next(action);
+    if (!action || !analytics) {
+      return returnAction;
+    }
+    const eventName = analytics.event;
+    const eventMetaData = analytics.eventData || {};
+    if (!eventName) {
+      return returnAction;
+    }
+    // track mixpanel event
+    track(eventName, eventMetaData);
+    return returnAction;
+  };
 }
